@@ -26,16 +26,35 @@ namespace BKV_lab_Economy.Views
 
         private void GetEconomy(object sender, RoutedEventArgs e)
         {
-            int countDays, firstCount, secondCount, costDifference;
-            ItemNameSecondText.Text = ItemName.Text;
+            try
+            {
+                int countDays, firstCount, secondCount, costDifference;
+                FirstItemNameLabel.Text = FirstItemName.Text;
+                SecondItemNameLabel.Text = SecondItemName.Text;
 
-            countDays = Convert.ToInt32(CountDays.Text);
-            firstCount = Convert.ToInt32(FirstItemCost.Text);
-            secondCount = Convert.ToInt32(SecondItemCost.Text);
+                countDays = Convert.ToInt32(CountDays.Text);
+                firstCount = Convert.ToInt32(FirstItemCost.Text);
+                secondCount = Convert.ToInt32(SecondItemCost.Text);
 
-            costDifference = (secondCount - firstCount) * countDays;
-            EconomyValue.Text = costDifference.ToString();
 
+                if (firstCount < secondCount)
+                {
+                    costDifference = (secondCount - firstCount) * countDays;
+                    MostDefferenceItem.Text = FirstItemName.Text;
+                }
+                else
+                {
+                    costDifference = (firstCount - secondCount) * countDays;
+                    MostDefferenceItem.Text = SecondItemName.Text;
+                }
+                EconomyValue.Text = costDifference.ToString();
+
+                DayCountTextBlock.Text = CountDays.Text;
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BoyNextDoor(object sender, RoutedEventArgs e)

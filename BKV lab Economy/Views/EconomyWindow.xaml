@@ -24,9 +24,6 @@
                            TextWrapping="Wrap"
                            Width="450" />
 
-                <Label Content="Название" />
-                <TextBox x:Name="ItemName" />
-
                 <Label Content="Сколько дней экономим?" />
                 <TextBox x:Name="CountDays" />
 
@@ -41,6 +38,9 @@
                                 Margin="5">
                         <Label Content="Первая вещь" />
 
+                        <Label Content="Название" />
+                        <TextBox x:Name="FirstItemName" />
+
                         <Label Content="Цена" />
                         <TextBox x:Name="FirstItemCost" />
                     </StackPanel>
@@ -50,6 +50,9 @@
                                 Margin="5">
                         <Label Content="Вторая вещь" />
 
+                        <Label Content="Название" />
+                        <TextBox x:Name="SecondItemName" />
+                        
                         <Label Content="Цена" />
                         <TextBox x:Name="SecondItemCost" />
                     </StackPanel>
@@ -67,13 +70,32 @@
                 <TextBlock x:Name="ItemNameSecondText" 
                            HorizontalAlignment="Center"/>
 
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Среди " />
+                    <TextBlock x:Name="FirstItemNameLabel" />
+
+                    <TextBlock Text=" и " />
+
+                    <TextBlock x:Name="SecondItemNameLabel" />
+                </StackPanel>
+
+                <TextBlock Text="Выгоднее оказался " />
+                <TextBlock x:Name="MostDefferenceItem" />
+
                 <Label Content="В итоге сэкономили:" 
                        Margin="0,10,0,0"/>
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Center">
                     <TextBlock x:Name="EconomyValue" />
-                    <TextBlock Text="рублей" />
+                    <TextBlock Text=" рублей" />
                 </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="В течение " />
+                    <TextBlock x:Name="DayCountTextBlock" />
+                    <TextBlock Text=" дней" />
+                </StackPanel>
+                
             </StackPanel>
         </Grid>
     </Border>

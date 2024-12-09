@@ -24,7 +24,6 @@ namespace BKV_lab_Economy
 
         private void Button_OpenSoManyWindowsToStartEconomy(object sender, RoutedEventArgs e)
         {
-            EconomyWindow economyWindow = new EconomyWindow();
 
             try
             {
@@ -37,8 +36,9 @@ namespace BKV_lab_Economy
                     return;
                 }
 
-                for (int i = 0; i < economyWindowsCount + 1; i++) 
+                for (int i = 0; i < economyWindowsCount; i++)
                 {
+                    EconomyWindow economyWindow = new EconomyWindow();
                     economyWindow.ShowDialog();
                 }
 
