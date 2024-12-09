@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using BKV_lab_Economy.Views;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,7 +24,30 @@ namespace BKV_lab_Economy
 
         private void Button_OpenSoManyWindowsToStartEconomy(object sender, RoutedEventArgs e)
         {
+            EconomyWindow economyWindow = new EconomyWindow();
 
+            try
+            {
+               
+                int economyWindowsCount = Convert.ToInt32(EconomyWindowsCount.Text);
+
+                if (economyWindowsCount == 0)
+                {
+                    MessageBox.Show("ЭЭ дружище, там цифры должны быть да!");
+                    return;
+                }
+
+                for (int i = 0; i < economyWindowsCount + 1; i++) 
+                {
+                    economyWindow.ShowDialog();
+                }
+
+            }
+            catch (Exception ex) 
+            { 
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

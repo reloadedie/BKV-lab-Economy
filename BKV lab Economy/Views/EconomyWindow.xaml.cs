@@ -23,5 +23,24 @@ namespace BKV_lab_Economy.Views
         {
             InitializeComponent();
         }
+
+        private void GetEconomy(object sender, RoutedEventArgs e)
+        {
+            int countDays, firstCount, secondCount, costDifference;
+            ItemNameSecondText.Text = ItemName.Text;
+
+            countDays = Convert.ToInt32(CountDays.Text);
+            firstCount = Convert.ToInt32(FirstItemCost.Text);
+            secondCount = Convert.ToInt32(SecondItemCost.Text);
+
+            costDifference = (secondCount - firstCount) * countDays;
+            EconomyValue.Text = costDifference.ToString();
+
+        }
+
+        private void BoyNextDoor(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

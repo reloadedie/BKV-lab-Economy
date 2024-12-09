@@ -16,7 +16,7 @@
                         VerticalAlignment="Center">
                 <Label Content="Добрый день! На скольких вещах будем экономить?" />
 
-                <TextBox Text="{Binding EconomyCount}" 
+                <TextBox x:Name="EconomyWindowsCount"
                          Margin="0,20,0,0"/>
 
                 <Button Content="Начать!"

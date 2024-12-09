@@ -15,7 +15,7 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
-                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="350"/>
             </Grid.ColumnDefinitions>
 
             <StackPanel HorizontalAlignment="Center"
@@ -25,10 +25,10 @@
                            Width="450" />
 
                 <Label Content="Название" />
-                <TextBox Text="{Binding Item.Name}" />
+                <TextBox x:Name="ItemName" />
 
                 <Label Content="Сколько дней экономим?" />
-                <TextBox Text="{Binding Item.CountDays}" />
+                <TextBox x:Name="CountDays" />
 
                 <Grid Margin="10">
                     <Grid.ColumnDefinitions>
@@ -42,7 +42,7 @@
                         <Label Content="Первая вещь" />
 
                         <Label Content="Цена" />
-                        <TextBox Text="{Binding FirstItem.Cost}" />
+                        <TextBox x:Name="FirstItemCost" />
                     </StackPanel>
 
                     <StackPanel Grid.Column="1"
@@ -51,22 +51,28 @@
                         <Label Content="Вторая вещь" />
 
                         <Label Content="Цена" />
-                        <TextBox Text="{Binding SecondItem.Cost}" />
+                        <TextBox x:Name="SecondItemCost" />
                     </StackPanel>
                 </Grid>
 
-                <Button Content="Далее" />
+                <Button Content="Далее"
+                        Click="BoyNextDoor"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1">
-                <Button Content="Считаемся!" />
+                <Button Content="Считаемся!"
+                        Click="GetEconomy"/>
 
-                <Label Content="В итоге сэкономили:" />
+                <Label Content="Название:" />
+                <TextBlock x:Name="ItemNameSecondText" 
+                           HorizontalAlignment="Center"/>
 
+                <Label Content="В итоге сэкономили:" 
+                       Margin="0,10,0,0"/>
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Center">
                     <TextBlock x:Name="EconomyValue" />
-                    <Label Content="рублей" />
+                    <TextBlock Text="рублей" />
                 </StackPanel>
             </StackPanel>
         </Grid>
