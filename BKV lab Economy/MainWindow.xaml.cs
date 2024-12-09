@@ -20,5 +20,10 @@ namespace BKV_lab_Economy
         {
             InitializeComponent();
         }
+
+        private void Button_OpenSoManyWindowsToStartEconomy(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

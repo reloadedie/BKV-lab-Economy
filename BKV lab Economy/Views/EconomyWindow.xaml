@@ -5,8 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BKV_lab_Economy.Views"
         mc:Ignorable="d"
-        Title="EconomyWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        WindowStartupLocation="CenterScreen"
+        Title="Спрашивается сколько" 
+        Background="{x:Null}"
+        Height="600" Width="900">
+    
+    <Border Style="{StaticResource MainBorder}"
+            Opacity="1">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <TextBlock Text="Пишите название вещи, цены, количество дней для экономии"
+                           TextWrapping="Wrap"
+                           Width="450" />
+
+                <Label Content="Название" />
+                <TextBox Text="{Binding Item.Name}" />
+
+                <Label Content="Сколько дней экономим?" />
+                <TextBox Text="{Binding Item.CountDays}" />
+
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                Margin="5">
+                        <Label Content="Первая вещь" />
+
+                        <Label Content="Цена" />
+                        <TextBox Text="{Binding FirstItem.Cost}" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                Margin="5">
+                        <Label Content="Вторая вещь" />
+
+                        <Label Content="Цена" />
+                        <TextBox Text="{Binding SecondItem.Cost}" />
+                    </StackPanel>
+                </Grid>
+
+                <Button Content="Далее" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <Button Content="Считаемся!" />
+
+                <Label Content="В итоге сэкономили:" />
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <TextBlock x:Name="EconomyValue" />
+                    <Label Content="рублей" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
 </Window>
